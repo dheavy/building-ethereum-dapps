@@ -1,19 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-contract SimpleCoin {
+import "../common/Ownable.sol";
+
+contract SimpleCoin is Ownable {
     mapping (address => uint256) public coinBalance;
     mapping (address => mapping(address => uint256)) public allowance;
     mapping (address => bool) public frozenAccount;
-    address public owner;
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event FrozenAccount(address target, bool frozen);
-
-    modifier onlyOwner {
-        if (msg.sender != owner) revert();
-        _;
-    }
 
     constructor(uint256 _initialSupply) public {
         owner = msg.sender;
