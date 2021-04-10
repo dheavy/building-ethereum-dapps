@@ -67,7 +67,7 @@ contract SimpleCrowdsale is Ownable {
         crowdsaleToken.mint(_beneficiary, _numberOfTokens);
     }
 
-    function calculateNumberOfTokens(uint256 _investment) internal view returns (uint256) {
+    function calculateNumberOfTokens(uint256 _investment) internal virtual returns (uint256) {
         return _investment / weiTokenPrice;
     }
 
@@ -83,6 +83,7 @@ contract SimpleCrowdsale is Ownable {
             } else {
                 isRefundingAllowed = true;
             }
+            isFinalized = true;
         }
     }
 
