@@ -1,0 +1,35 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "UnlimitedFundingStrategy",
+  "sourceName": "contracts/funding/UnlimitedFundingStrategy.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_investment",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fullInvestmentReceived",
+          "type": "uint256"
+        }
+      ],
+      "name": "isFullInvestmentWithinLimit",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5060ba8061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806306b9c58314602d575b600080fd5b606060048036036040811015604157600080fd5b8101908080359060200190929190803590602001909291905050506078565b60405180821515815260200191505060405180910390f35b6000600190509291505056fea26469706673582212202e80ff2d15be9533b81ec39c4921089caafc18784a1e4720d3e1e020ec11bd8064736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806306b9c58314602d575b600080fd5b606060048036036040811015604157600080fd5b8101908080359060200190929190803590602001909291905050506078565b60405180821515815260200191505060405180910390f35b6000600190509291505056fea26469706673582212202e80ff2d15be9533b81ec39c4921089caafc18784a1e4720d3e1e020ec11bd8064736f6c634300060c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

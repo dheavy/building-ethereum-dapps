@@ -1,0 +1,51 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Pausable",
+  "sourceName": "contracts/common/Pausable.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405260008060146101000a81548160ff02191690831515021790555034801561002a57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506102428061007a6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80633f4ba83a146100515780635c975abb1461005b5780638456cb591461007b5780638da5cb5b14610085575b600080fd5b6100596100b9565b005b610063610146565b60405180821515815260200191505060405180910390f35b610083610159565b005b61008d6101e8565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461011157600080fd5b600060149054906101000a900460ff1661012a57600080fd5b60008060146101000a81548160ff021916908315150217905550565b600060149054906101000a900460ff1681565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101b157600080fd5b600060149054906101000a900460ff16156101cb57600080fd5b6001600060146101000a81548160ff021916908315150217905550565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea26469706673582212208d4e0af1a3b9e7e214d86ca1c95175adb0cba293fbd225c56ff299bea4ed64a964736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80633f4ba83a146100515780635c975abb1461005b5780638456cb591461007b5780638da5cb5b14610085575b600080fd5b6100596100b9565b005b610063610146565b60405180821515815260200191505060405180910390f35b610083610159565b005b61008d6101e8565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461011157600080fd5b600060149054906101000a900460ff1661012a57600080fd5b60008060146101000a81548160ff021916908315150217905550565b600060149054906101000a900460ff1681565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101b157600080fd5b600060149054906101000a900460ff16156101cb57600080fd5b6001600060146101000a81548160ff021916908315150217905550565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea26469706673582212208d4e0af1a3b9e7e214d86ca1c95175adb0cba293fbd225c56ff299bea4ed64a964736f6c634300060c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
