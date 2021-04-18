@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-import "../common/Ownable.sol";
-
-contract SimpleCoin is Ownable {
+contract SimpleCoin {
     mapping (address => uint256) public coinBalance;
     mapping (address => mapping(address => uint256)) public allowance;
     mapping (address => bool) public frozenAccount;

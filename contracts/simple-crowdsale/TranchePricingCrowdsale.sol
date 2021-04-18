@@ -24,9 +24,10 @@ contract TranchePrincingCrowdsale is SimpleCrowdsale {
         currentTrancheLevel = 0;
     }
 
-    function calculateNumberOfTokens(uint256 _investment) override internal returns (uint256) {
+    function assignTokens(address _beneficiary, uint256 _investment) override internal {
         updateCurrentTrancheAndPrice();
-        return _investment / weiTokenPrice;
+        uint256 _numberOfTokens = calculateNumberOfTokens(_investment);
+        crowdsaleToken.mint(_beneficiary, _numberOfTokens);
     }
 
     function updateCurrentTrancheAndPrice() internal {

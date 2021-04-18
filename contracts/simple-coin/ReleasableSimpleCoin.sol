@@ -2,8 +2,10 @@
 pragma solidity ^0.6.0;
 
 import "./SimpleCoin.sol";
+import "../common/Pausable.sol";
+import "../common/Destructible.sol";
 
-contract ReleasableSimpleCoin is SimpleCoin {
+contract ReleasableSimpleCoin is SimpleCoin, Pausable, Destructible {
     bool public released = false;
 
     modifier isReleased() {

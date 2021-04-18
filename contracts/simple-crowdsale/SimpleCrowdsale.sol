@@ -2,9 +2,10 @@
 pragma solidity ^0.6.0;
 
 import "../simple-coin/ReleasableSimpleCoin.sol";
-import "../common/Ownable.sol";
+import "../common/Pausable.sol";
+import "../common/Destructible.sol";
 
-contract SimpleCrowdsale is Ownable {
+contract SimpleCrowdsale is Pausable, Destructible {
     uint256 public startTime;
     uint256 public endTime;
     uint256 public weiTokenPrice;
@@ -62,12 +63,12 @@ contract SimpleCrowdsale is Ownable {
         return nonZeroInvestment && withinPeriod;
     }
 
-    function assignTokens(address _beneficiary, uint256 _investment) internal {
+    function assignTokens(address _beneficiary, uint256 _investment) internal virtual {
         uint256 _numberOfTokens = calculateNumberOfTokens(_investment);
         crowdsaleToken.mint(_beneficiary, _numberOfTokens);
     }
 
-    function calculateNumberOfTokens(uint256 _investment) internal virtual returns (uint256) {
+    function calculateNumberOfTokens(uint256 _investment) internal view returns (uint256) {
         return _investment / weiTokenPrice;
     }
 
