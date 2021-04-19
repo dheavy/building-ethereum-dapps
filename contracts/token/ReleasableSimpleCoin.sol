@@ -22,11 +22,13 @@ contract ReleasableSimpleCoin is SimpleCoin, Pausable, Destructible {
         released = true;
     }
 
-    function transfer(address _to, uint256 _amount) isReleased override public {
+    function transfer(address _to, uint256 _amount) isReleased override public returns (bool success) {
         super.transfer(_to, _amount);
+        return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _amount) isReleased override public returns (bool) {
+    function transferFrom(address _from, address _to, uint256 _amount) isReleased override  public returns (bool success) {
         super.transferFrom(_from, _to, _amount);
+        return true;
     }
 }

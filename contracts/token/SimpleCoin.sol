@@ -2,10 +2,11 @@
 pragma solidity ^0.6.0;
 
 import "../common/Ownable.sol";
+import "./ERC20.sol";
 
-contract SimpleCoin is Ownable {
+contract SimpleCoin is ERC20, Ownable {
     mapping (address => uint256) public coinBalance;
-    mapping (address => mapping(address => uint256)) public allowance;
+    mapping (address => mapping(address => uint256)) public allowances;
     mapping (address => bool) public frozenAccount;
 
     event Transfer(address indexed from, address indexed to, uint256 value);
@@ -16,33 +17,43 @@ contract SimpleCoin is Ownable {
         mint(owner, _initialSupply);
     }
 
-    function transfer(address _to, uint256 _amount) virtual public {
-        require(_to != address(0));
-        require(coinBalance[msg.sender] > _amount);
-        require(coinBalance[_to] + _amount >= coinBalance[_to]);
-
-        coinBalance[msg.sender] -= _amount;
-        coinBalance[_to] += _amount;
-
-        emit Transfer(msg.sender, _to, _amount);
+    function balanceOf(address _owner) override public view returns (uint256 balance) {
+        return coinBalance[_owner];
     }
 
-    function authorize(address _authorizedAccount, uint256 _allowance) public returns (bool success) {
-        allowance[msg.sender][_authorizedAccount] = _allowance;
+    function approve(address _spender, uint256 _value) override public returns (bool success) {
+        allowances[msg.sender][_spender] = _value;
+        emit Approval(msg.sender, _spender, _value);
         return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _amount) virtual public returns (bool success) {
+    function allowance(address _owner, address _spender) override public view returns (uint256 remaining) {
+        return allowances[_owner][_spender];
+    }
+
+    function transfer(address _to, uint256 _value) override virtual public returns (bool success) {
         require(_to != address(0));
-        require(coinBalance[_from] > _amount);
-        require(coinBalance[_to] + _amount >= coinBalance[_to]);
-        require(_amount <= allowance[_from][msg.sender]);
+        require(coinBalance[msg.sender] > _value);
+        require(coinBalance[_to] + _value >= coinBalance[_to]);
 
-        coinBalance[_from] -= _amount;
-        coinBalance[_to] += _amount;
-        allowance[_from][msg.sender] -= _amount;
+        coinBalance[msg.sender] -= _value;
+        coinBalance[_to] += _value;
 
-        emit Transfer(_from, _to, _amount);
+        emit Transfer(msg.sender, _to, _value);
+        return true;
+    }
+
+    function transferFrom(address _from, address _to, uint256 _value) override virtual public returns (bool success) {
+        require(_to != address(0));
+        require(coinBalance[_from] > _value);
+        require(coinBalance[_to] + _value >= coinBalance[_to]);
+        require(_value <= allowances[_from][msg.sender]);
+
+        coinBalance[_from] -= _value;
+        coinBalance[_to] += _value;
+        allowances[_from][msg.sender] -= _value;
+
+        emit Transfer(_from, _to, _value);
         return true;
     }
 
